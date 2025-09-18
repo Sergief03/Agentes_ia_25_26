@@ -1,0 +1,18 @@
+#Gitignore sirve para indicar a git, que ficheros o carpetas no deben ser tenidos en cuenta por git
+
+# variables 
+.env
+
+# archivos del sistema
+Thumbs.db
+.DS_Store
+
+# dependencias 
+node_modules/
+
+# carpetas de build
+dist/
+build/
+
+#logs
+#npm-debug.log*

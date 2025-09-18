@@ -1,0 +1,16 @@
+{
+  "name": "agentes_ia_25_26",
+  "version": "1.0.0",
+  "description": "Semana 01 de Agentes IA",
+  "license": "ISC",
+  "author": "Sergio Fernández Fernández",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "validate": "bash ./scripts/validate.sh"
+  },
+  "dependencies": {
+    "dotenv": "17.2.2"
+  }
+}
