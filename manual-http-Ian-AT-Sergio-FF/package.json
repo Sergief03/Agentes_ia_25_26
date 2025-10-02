@@ -1,0 +1,13 @@
+{
+  "name": "manual-http-ian-at-sergio-ff",
+  "version": "1.0.0",
+  "description": "Implementacion de un sistema completo de gestion de estudiantes mediante peticiones HTTp utilizando una API local con json-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Sergio Fernández Fernández , Ian Álvare Triviño",
+  "license": "ISC",
+  "type": "commonjs"
+}
