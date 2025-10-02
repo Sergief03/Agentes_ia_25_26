@@ -4,7 +4,7 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 
 ---
 
-## 🏗 Phase 1: Initial Setup
+## 🏗 Phase 1: Initial Setup **(Sergio)**
 - [x] Create project folder `manual-http-[name-initials-surname]`
 - [x] Initialize project with `npm init`
 - [x] Complete `package.json` metadata
@@ -28,12 +28,12 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 ---
 
 ## 🔧 Phase 2: Required Scripts
-- [ ] `src/crud-curl.js` implemented
-- [ ] `scripts/validate.sh` implemented and executable
+- [ ] `src/crud-curl.js` implemented **(Ian)**
+- [ ] `scripts/validate.sh` implemented and executable **(Sergio)**
 
 ---
 
-## 💻 Phase 3: CRUD Functions in `crud-curl.js`
+## 💻 Phase 3: CRUD Functions in `crud-curl.js` **(Ian)**
 - [ ] `createStudent(studentData)`
 - [ ] `readAllStudents()`
 - [ ] `readStudentById(id)`
@@ -44,7 +44,7 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 
 ---
 
-## 📚 Phase 4: CRUD Documentation
+## 📚 Phase 4: CRUD Documentation **(Ian)**
 - [ ] Document CREATE
 - [ ] Document READ ALL
 - [ ] Document READ BY ID
@@ -57,7 +57,7 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 
 ---
 
-## ⚡ Phase 5: Thunder Client
+## ⚡ Phase 5: Thunder Client **(Sergio)**
 - [ ] Create collection "CRUD Students API"
 - [ ] Setup environment variables (baseUrl, port, fullUrl)
 - [ ] Add 6 CRUD requests
@@ -67,7 +67,7 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 
 ---
 
-## 📝 Phase 6: REST Client
+## 📝 Phase 6: REST Client **(Sergio)**
 - [ ] Create `peticiones-crud.http`
 - [ ] Define variables (@baseUrl, @port, @apiUrl)
 - [ ] Implement CRUD operations
@@ -78,7 +78,7 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 
 ---
 
-## ✅ Phase 7: Validation
+## ✅ Phase 7: Validation **(Sergio)**
 - [ ] `scripts/validate.sh` validates:
   - [ ] package.json exists
   - [ ] src/db/db.json exists
@@ -96,7 +96,7 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 
 ---
 
-## 🌿 Phase 8: Git & GitHub
+## 🌿 Phase 8: Git & GitHub **(Sergio)**
 - [ ] Initialize Git locally
 - [ ] Connect to remote repository
 - [ ] Set main branch
