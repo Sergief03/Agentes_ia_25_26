@@ -1,1 +1,11 @@
+curl -i -X DELETE https://jsonplaceholder.typicode.com/users/9 
+
+
+
 curl -X POST "https://reqres.in/api/users"  -H "Content-Type: application/json" -H "x-api-key: reqres-free-v1" -d '{"name": "Sergio", "job": "alumno"}'
+curl -X POST "https://reqres.in/api/login"  -H "Content-Type: application/json" -H "x-api-key: reqres-free-v1" -d '{"email": "eve.holt@reqres.in", "password": "cityslicka"}'
+curl -X GET "https://reqres.in/api/users/2"  -H "Content-Type: application/json" -H "x-api-key: reqres-free-v1" -H "Authorization: Bearer QpwL5tke4Pnpja7X4"| jq
+
+
+
+curl -X GET "https://httpbin.org/get"
