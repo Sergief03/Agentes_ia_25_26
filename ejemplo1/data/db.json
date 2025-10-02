@@ -1,0 +1,306 @@
+{
+  "authors": [
+    {
+      "id": "1",
+      "nombre": "Robert Cecil Martin",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "2",
+      "nombre": "Andrew Hunt",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "4",
+      "nombre": "Erich Gamma",
+      "nacionalidad": "Suiza"
+    },
+    {
+      "id": "5",
+      "nombre": "Richard Helm",
+      "nacionalidad": "Australia"
+    },
+    {
+      "id": "6",
+      "nombre": "Ralph Johnson",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "7",
+      "nombre": "John Vlissides",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "8",
+      "nombre": "Martin Fowler",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "9",
+      "nombre": "Kyle Simpson",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "10",
+      "nombre": "Douglas Crockford",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "11",
+      "nombre": "Marijn Haverbeke",
+      "nacionalidad": "Países Bajos"
+    },
+    {
+      "id": "12",
+      "nombre": "Joshua Bloch",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "13",
+      "nombre": "Kathy Sierra",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "14",
+      "nombre": "Bert Bates",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "15",
+      "nombre": "Eric Matthes",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "16",
+      "nombre": "Luciano Ramalho",
+      "nacionalidad": "Brasil"
+    },
+    {
+      "id": "17",
+      "nombre": "Mark Lutz",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "18",
+      "nombre": "Jim Blandy",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "19",
+      "nombre": "Jason Orendorff",
+      "nacionalidad": "EEUU"
+    },
+    {
+      "id": "20",
+      "nombre": "Tim McNamara",
+      "nacionalidad": "Nueva Zelanda"
+    },
+    {
+      "id": "48fe",
+      "nombre": "Nuevo Autor",
+      "nacionalidad": "España"
+    }
+  ],
+  "books": [
+    {
+      "id": "1",
+      "titulo": "Clean Code (2ª Edición)",
+      "editorial": "Prentice Hall",
+      "anio": 2010,
+      "categoria": "Buenas prácticas",
+      "isbn": "9780132350884",
+      "precio": 40.99,
+      "authorId": 1
+    },
+    {
+      "id": "3",
+      "titulo": "The Pragmatic Programmer",
+      "editorial": "Addison-Wesley",
+      "anio": 1999,
+      "categoria": "Desarrollo general",
+      "isbn": "9780201616224",
+      "precio": 32.5,
+      "authorId": 3
+    },
+    {
+      "id": "4",
+      "titulo": "Design Patterns: Elements of Reusable Object-Oriented Software",
+      "editorial": "Addison-Wesley",
+      "anio": 1994,
+      "categoria": "Patrones de diseño",
+      "isbn": "9780201633610",
+      "precio": 45,
+      "authorId": 4
+    },
+    {
+      "id": "5",
+      "titulo": "Design Patterns: Elements of Reusable Object-Oriented Software",
+      "editorial": "Addison-Wesley",
+      "anio": 1994,
+      "categoria": "Patrones de diseño",
+      "isbn": "9780201633610",
+      "precio": 45,
+      "authorId": 5
+    },
+    {
+      "id": "6",
+      "titulo": "Refactoring: Improving the Design of Existing Code",
+      "editorial": "Addison-Wesley",
+      "anio": 1999,
+      "categoria": "Refactorización",
+      "isbn": "9780201485677",
+      "precio": 39.9,
+      "authorId": 8
+    },
+    {
+      "id": "7",
+      "titulo": "You Don't Know JS: Scope & Closures",
+      "editorial": "O'Reilly Media",
+      "anio": 2014,
+      "categoria": "JavaScript",
+      "isbn": "9781491904152",
+      "precio": 22.99,
+      "authorId": 9
+    },
+    {
+      "id": "8",
+      "titulo": "JavaScript: The Good Parts",
+      "editorial": "O'Reilly Media",
+      "anio": 2008,
+      "categoria": "JavaScript",
+      "isbn": "9780596517748",
+      "precio": 25.5,
+      "authorId": 10
+    },
+    {
+      "id": "9",
+      "titulo": "Eloquent JavaScript",
+      "editorial": "No Starch Press",
+      "anio": 2018,
+      "categoria": "JavaScript",
+      "isbn": "9781593279509",
+      "precio": 28,
+      "authorId": 11
+    },
+    {
+      "id": "10",
+      "titulo": "Effective Java",
+      "editorial": "Addison-Wesley",
+      "anio": 2018,
+      "categoria": "Java",
+      "isbn": "9780134685991",
+      "precio": 42.99,
+      "authorId": 12
+    },
+    {
+      "id": "11",
+      "titulo": "Head First Java",
+      "editorial": "O'Reilly Media",
+      "anio": 2005,
+      "categoria": "Java",
+      "isbn": "9780596009205",
+      "precio": 34.95,
+      "authorId": 13
+    },
+    {
+      "id": "12",
+      "titulo": "Head First Java",
+      "editorial": "O'Reilly Media",
+      "anio": 2005,
+      "categoria": "Java",
+      "isbn": "9780596009205",
+      "precio": 34.95,
+      "authorId": 14
+    },
+    {
+      "id": "13",
+      "titulo": "Python Crash Course",
+      "editorial": "No Starch Press",
+      "anio": 2019,
+      "categoria": "Python",
+      "isbn": "9781593279288",
+      "precio": 29.99,
+      "authorId": 15
+    },
+    {
+      "id": "14",
+      "titulo": "Fluent Python",
+      "editorial": "O'Reilly Media",
+      "anio": 2015,
+      "categoria": "Python",
+      "isbn": "9781491946008",
+      "precio": 46.99,
+      "authorId": 16
+    },
+    {
+      "id": "15",
+      "titulo": "Learning Python",
+      "editorial": "O'Reilly Media",
+      "anio": 2013,
+      "categoria": "Python",
+      "isbn": "9781449355739",
+      "precio": 55,
+      "authorId": 17
+    },
+    {
+      "id": "16",
+      "titulo": "Programming Rust",
+      "editorial": "O'Reilly Media",
+      "anio": 2017,
+      "categoria": "Rust",
+      "isbn": "9781491927281",
+      "precio": 44.99,
+      "authorId": 18
+    },
+    {
+      "id": "17",
+      "titulo": "Programming Rust",
+      "editorial": "O'Reilly Media",
+      "anio": 2017,
+      "categoria": "Rust",
+      "isbn": "9781491927281",
+      "precio": 44.99,
+      "authorId": 19
+    },
+    {
+      "id": "18",
+      "titulo": "Rust in Action",
+      "editorial": "Manning",
+      "anio": 2021,
+      "categoria": "Rust",
+      "isbn": "9781617294556",
+      "precio": 41.95,
+      "authorId": 20
+    },
+    {
+      "id": "19",
+      "titulo": "C Programming Language",
+      "editorial": "Prentice Hall",
+      "anio": 1988,
+      "categoria": "C",
+      "isbn": "9780131103627",
+      "precio": 38,
+      "authorId": 1
+    },
+    {
+      "id": "20",
+      "titulo": "C# in Depth",
+      "editorial": "Manning",
+      "anio": 2019,
+      "categoria": "C#",
+      "isbn": "9781617294532",
+      "precio": 47.99,
+      "authorId": 16
+    },
+    {
+      "id": "77f8",
+      "titulo": "Nuevo Libro",
+      "editorial": "OpenAI Press",
+      "anio": 2025,
+      "categoria": "IA",
+      "isbn": "0000000000",
+      "precio": 19.99,
+      "authorId": 1
+    }
+  ]
+}
