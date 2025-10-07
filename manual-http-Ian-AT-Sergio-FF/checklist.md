@@ -13,13 +13,13 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
   - [x] dotenv  
 - [] Configure `package.json` with:
   - [x] `"type": "module"`
-  - [ ] Script `server:up` → run json-server on port 4000
-  - [ ] Script `crud:curl` → run `src/crud-curl.js`
-  - [ ] Script `validate` → run `scripts/validate.sh`
-- [ ] Create folder structure:
+  - [X] Script `server:up` → run json-server on port 4000
+  - [X] Script `crud:curl` → run `src/crud-curl.js`
+  - [X] Script `validate` → run `scripts/validate.sh`
+- [x] Create folder structure:
   - [x] `src/db/db.json`
   - [x] `src/crud-curl.js`
-  - [ ] `scripts/validate.sh`
+  - [x] `scripts/validate.sh`
   - [x] `images/`
 - [x] Create `.env` file
 - [] Create `.env.example` template
@@ -29,7 +29,7 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 
 ## 🔧 Phase 2: Required Scripts
 - [ ] `src/crud-curl.js` implemented **(Ian)**
-- [ ] `scripts/validate.sh` implemented and executable **(Sergio)**
+- [X] `scripts/validate.sh` implemented and executable **(Sergio)**
 
 ---
 
@@ -79,33 +79,33 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 ---
 
 ## ✅ Phase 7: Validation **(Sergio)**
-- [ ] `scripts/validate.sh` validates:
-  - [ ] package.json exists
-  - [ ] src/db/db.json exists
-  - [ ] .gitignore exists
-  - [ ] .env.example exists
-  - [ ] README.md exists
-  - [ ] checklist.md exists
-  - [ ] peticiones-crud.http exists
-  - [ ] src/crud-curl.js exists
-  - [ ] images/ folder exists with ≥6 screenshots
-  - [ ] scripts/ folder exists
-  - [ ] Dependencies (dotenv, json-server) installed
-  - [ ] Scripts (`server:up`, `crud:curl`) exist in package.json
-- [ ] Validation script prints success message
+- [x] `scripts/validate.sh` validates:
+  - [x] package.json exists
+  - [x] src/db/db.json exists
+  - [x] .gitignore exists
+  - [x] .env.example exists
+  - [x] README.md exists
+  - [x] checklist.md exists
+  - [x] peticiones-crud.http exists
+  - [x] src/crud-curl.js exists
+  - [x] images/ folder exists with ≥6 screenshots
+  - [x] scripts/ folder exists
+  - [x] Dependencies (dotenv, json-server) installed
+  - [x] Scripts (`server:up`, `crud:curl`) exist in package.json
+- [x] Validation script prints success message
 
 ---
 
 ## 🌿 Phase 8: Git & GitHub **(Sergio)**
-- [ ] Initialize Git locally
-- [ ] Connect to remote repository
-- [ ] Set main branch
-- [ ] Push initial code
-- [ ] Create branch `m1/http-request-response`
+- [x] Initialize Git locally
+- [x] Connect to remote repository
+- [x] Set main branch
+- [x] Push initial code
+- [x] Create branch `m1/http-request-response`
 - [ ] Make incremental commits with descriptive messages
-- [ ] Push branch to GitHub
+- [x] Push branch to GitHub
 - [ ] Open Pull Request to main
-- [ ] Add professor as reviewer
+- [x] Add professor as reviewer
 - [ ] Merge PR
 - [ ] Create and push tag `M1/http-request-response`
 

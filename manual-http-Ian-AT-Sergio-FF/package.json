@@ -4,7 +4,10 @@
   "description": "Implementacion de un sistema completo de gestion de estudiantes mediante peticiones HTTp utilizando una API local con json-server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server:up":"json-server --watch src/db/db.json --port 4000",
+    "crud:curl": "node src/crud-curl.js",
+    "validate":"bash ./scripts/validate.sh"
   },
   "keywords": [],
   "author": "Sergio Fernández Fernández , Ian Álvare Triviño",
