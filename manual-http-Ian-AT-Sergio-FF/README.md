@@ -39,15 +39,14 @@ Lo primero que hacemos, es crear la URL para los estudiantes:
 Después de crear la URL, ahora prosigue el comando CURL y este lo preparamos con los datos en JSON
 
 ```bash
-curl -X POST "http://localhost:3000/students" -H "Content-Type: application/json" -d '{ "nombre": "Antonio", "edad": 43 }'
+curl -i -X POST "http://localhost:3000/students" -H "Content-Type: application/json" -d '{ "nombre": "Antonio", "edad": 43 }'
 ```
-### Flags
+### Explicación
 
-| Flag | Significado |
-|------|--------------|
-| `-X POST` | Indica el método HTTP **POST** |
-| `-H "Content-Type: application/json"` | Especifica que el cuerpo es JSON |
-| `-d '{ ... }'` | Envía los datos en formato JSON |
+- `-i`: muestra headers + body de la respuesta. 
+- `-X POST`:  Indica el método HTTP **POST** 
+- `-H "Content-Type: application/json"`:  Especifica que el cuerpo es JSON 
+- `-d '{ ... }'`:  Envía los datos en formato JSON 
 
 ### Resultado
 
@@ -77,8 +76,13 @@ Lo primero que hacemos, es crear la URL para leer todos los estudiantes:
 Después de crear la URL, tenemos que hacer el comando CURL a través de una petición GET y para poder hacer eso, necesitamos colocar dentro del comando una cadena de carácteres y usar una variable que tenga la dirección del recurso que se quiere usar
 
 ```bash
-const curl = 'curl -X GET "'+url+'"'
+const curl = 'curl -i -X GET "'+url+'"'
 ```
+
+### Explicación
+
+- `-X GET`:  método para obtener datos. 
+- No lleva `-d` porque no se envían datos. 
 
 ### Resultado
 
@@ -107,8 +111,13 @@ Lo primero que hacemos, es crear la URL para leer los estudiantes por su ID y pa
 Después de crear la URL, tenemos que hacer el comando CURL a través de una petición GET y para poder hacer eso, necesitamos colocar dentro del comando una cadena de carácteres y usar una variable que tenga la dirección del recurso que se quiere usar
 
 ```bash
-const curl = 'curl -X GET "'+url+'"'
+const curl = 'curl -i -X GET "'+url+'"'
 ```
+
+### Explicación
+
+- `-X GET`:  método para obtener datos. 
+- No lleva `-d` porque no se envían datos.
 
 ### Resultado
 
@@ -150,8 +159,13 @@ Después de crear la URL, ahora prosigue el comando CURL y este lo preparamos co
 const data = '{ "nombre": "'+studentData.nombre+'", "edad": '+studentData.edad + ' }';
 
 // comando curl con PUT para que se actualicen los datos
-const curl = 'curl -X PUT "' + url + '" -H "Content-Type: application/json" -d \'' + data+ '\'';
+const curl = 'curl -i -X PUT "' + url + '" -H "Content-Type: application/json" -d \'' + data+ '\'';
 ```
+
+### Explicación
+
+- `-i`: muestra headers + body de la respuesta. 
+- `-X PUT`: método para actualizar datos
 
 ### Resultado
 
@@ -190,8 +204,13 @@ Después de crear la URL, ahora prosigue el comando CURL y este lo preparamos co
 const data = '{ "edad": '+partialData.edad+' }';
 
 // comando curl con PATCH para actualizar los datos parcialmente
-const curl = 'curl -X PATCH "'+url+'" -H "Content-Type: application/json" -d \''+data+'\'';
+const curl = 'curl -i -X PATCH "'+url+'" -H "Content-Type: application/json" -d \''+data+'\'';
 ```
+
+### Explicación
+
+- `-i`: muestra headers + body de la respuesta. 
+- `-X PATCH`: método para actualizar datos de campos específicos.
 
 ### Resultado
 
@@ -222,8 +241,12 @@ Lo primero que hacemos, es crear la URL para eliminar los datos de un estudiante
 Después de crear la URL, tenemos que hacer el comando CURL a través de DELETE y para eliminar ese estudiante, necesitamos colocar dentro del comando una cadena de carácteres y usar una variable que tenga la dirección del recurso que se quiere usar
 
 ```bash
-const curl = 'curl -X DELETE "'+url+'"';
+const curl = 'curl -i -X DELETE "'+url+'"';
 ```
+
+### Explicación
+
+- `-X DELETE`:  método para eliminar datos.
 
 ### Resultado
 
@@ -237,6 +260,84 @@ const curl = 'curl -X DELETE "'+url+'"';
 ```json
 { "error": "Estudiante no encontrado" }
 ```
+---
+
+## Pruebas Reales con json-server 
+
+1. Levantar servidor:
+```bash
+npm run server:up
+```
+![Start server](images/iniciarServer.png)
+
+2. Ejecutar cada comando cURL de las operaciones anteriores.
+![Execute commands](images/ejecutarComandos.png)
+
+3. Capturar **respuesta completa** (headers + body) usando `-i`.
+
+### CREATE Student
+
+#### 📥 Headers enviados  
+- `Content-Type: application/json` → necesario para que `json-server` interprete correctamente el body. 
+
+![Create Student](images/createStudents.png)
+
+#### Código de estado
+- **201 Created**: recurso creado correctamente.
+---
+### GET All Students
+
+#### 📥 Headers enviados  
+- Ninguno adicional, solo la petición básica.  
+
+![Get All Students](images/readAllStudents1.png)
+![Get All Students](images/readAllStudents2.png)
+![Get All Students](images/readAllStudent3.png)
+
+#### Código de estado
+- **200 OK**: petición exitosa.
+---
+### GET Student by ID
+
+#### 📥 Headers enviados  
+- Ninguno adicional, solo la petición básica.  
+
+![Get Student by ID](images/readStudentsById.png)
+
+#### Código de estado
+- **200 OK**: petición exitosa.
+---
+### UPDATE Student
+
+#### 📥 Headers enviados
+`Content-Type: application/json` → porque se envía un body en `JSON` con todos los datos del estudiante.
+
+![Update Student](images/updateStudents.png)
+
+#### Código de estado
+- **200 OK**: petición exitosa.
+---
+
+### PATCH Student
+
+#### 📥 Headers enviados
+`Content-Type: application/json` → porque se envía un body en `JSON` con los campos parciales a actualizar.
+
+![Patch Student](images/patchStudent.png)
+
+#### Código de estado
+- **200 OK**: petición exitosa.
+---
+
+### DELETE Student
+
+#### 📥 Headers enviados  
+- Ninguno adicional, solo la petición básica. 
+
+![Delete Student](images/removeStudent.png)
+
+#### Código de estado
+- **200 OK**: petición exitosa.
 ---
 
 ## Explicación de las Flags de `curl`
@@ -260,6 +361,8 @@ const curl = 'curl -X DELETE "'+url+'"';
 | `400 Bad Request` | Datos enviados no válidos | POST, PUT, PATCH |
 | `404 Not Found` | Recurso no encontrado | GET, PUT, PATCH, DELETE |
 | `500 Internal Server Error` | Error en el servidor | General |
+
+---
 
 # Thunder Client Documentation
 

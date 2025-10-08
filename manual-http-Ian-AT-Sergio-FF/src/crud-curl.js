@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 //Cargo las variables .env a este fichero
 dotenv.config();
 
+console.log("----- Comienzo de la ejecución del script -----");
+
 //mostrar por consola el valor de las variables de entorno
 console.log("URL de acceso: " + process.env.PORT);
 console.log("Puerto: " + process.env.API_BASE_URL);
@@ -25,7 +27,7 @@ function createStudent(studentData){
     const data = '{ "nombre": "'+studentData.nombre+'", "edad": '+studentData.edad + ' }';
 
     // Comando curl con el método POST 
-    const curl = 'curl -X POST "' + url + '" -H "Content-Type: application/json" -d \'' +data+ '\'';
+    const curl = 'curl -i -X POST "' + url + '" -H "Content-Type: application/json" -d \'' +data+ '\'';
     
     // Se muestra el comando por consola, si se ha hecho bien devuelve true o flase si no se ha hecho bien
     console.log("Crear estudiante:");
@@ -41,10 +43,10 @@ function readAllStudents(){
     const url = BASE_URL + "/students";
     
     // comando curl con el método GET para hacer una petición
-    const curl = 'curl -X GET "'+url+'"';
+    const curl = 'curl -i -X GET "'+url+'"';
 
     // Se muestra el comando por consola, si se ha hecho bien devuelve true o flase si no se ha hecho bien
-    console.log("Leer estudiantes:");
+    console.log("Leer todos los estudiantes:");
     console.log(curl);
 }
 
@@ -58,10 +60,10 @@ function readStudentsById(id){
     const url = BASE_URL+"/students/"+id;
 
     // comando curl para leer a un solo estudiante
-    const curl = 'curl -X GET "'+url+'"';
+    const curl = 'curl -i -X GET "'+url+'"';
 
     // Se muestra el comando por consola, si se ha hecho bien devuelve true o flase si no se ha hecho bien
-    console.log("Leer estudiantes por Id:");
+    console.log("Leer estudiante por Id:");
     console.log(curl);
 }
 
@@ -79,7 +81,7 @@ function updateStudent(id, studentData){
     const data = '{ "nombre": "'+studentData.nombre+'", "edad": '+studentData.edad + ' }';
 
     // comando curl con PUT para que se actualicen los datos
-    const curl = 'curl -X PUT "' + url + '" -H "Content-Type: application/json" -d \'' + data+ '\'';
+    const curl = 'curl -i -X PUT "' + url + '" -H "Content-Type: application/json" -d \'' + data+ '\'';
 
     // Se muestra el comando por consola, si se ha hecho bien devuelve true o flase si no se ha hecho bien
     console.log("Actualizar estudiante:");
@@ -100,10 +102,10 @@ function patchStudent(id, partialData){
     const data = '{ "edad": '+partialData.edad+' }';
 
     // comando curl con PATCH para actualizar los datos parcialmente
-    const curl = 'curl -X PATCH "'+url+'" -H "Content-Type: application/json" -d \''+data+'\'';
+    const curl = 'curl -i -X PATCH "'+url+'" -H "Content-Type: application/json" -d \''+data+'\'';
 
     // Se muestra el comando por consola, si se ha hecho bien devuelve true o flase si no se ha hecho bien
-    console.log("Actualizar parcialmente");
+    console.log("Actualizar parcialmente estudiante:");
     console.log(curl);
 }
 
@@ -117,7 +119,7 @@ function deleteStudent(id){
     const url = BASE_URL+"/students/"+id;
 
     // comando curl con DELETE para eliminar el esutidante
-    const curl = 'curl -X DELETE "'+url+'"';
+    const curl = 'curl -i -X DELETE "'+url+'"';
 
     // Se muestra el comando por consola, si se ha hecho bien devuelve true o flase si no se ha hecho bien
     console.log("Eliminar estudiante: ");
@@ -132,3 +134,5 @@ readStudentsById(1);
 updateStudent(1, {nombre: "Antonio Lovato", edad: 45});
 patchStudent(1, {edad:49});
 deleteStudent(1);
+
+console.log("----- Fin de la ejecución del script -----");

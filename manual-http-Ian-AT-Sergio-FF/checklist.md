@@ -28,32 +28,32 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 ---
 
 ## 🔧 Phase 2: Required Scripts
-- [ ] `src/crud-curl.js` implemented **(Ian)**
+- [x] `src/crud-curl.js` implemented **(Ian)**
 - [X] `scripts/validate.sh` implemented and executable **(Sergio)**
 
 ---
 
 ## 💻 Phase 3: CRUD Functions in `crud-curl.js` **(Ian)**
-- [ ] `createStudent(studentData)`
-- [ ] `readAllStudents()`
-- [ ] `readStudentById(id)`
-- [ ] `updateStudent(id, studentData)` (PUT)
-- [ ] `patchStudent(id, partialData)` (PATCH)
-- [ ] `deleteStudent(id)`
-- [ ] All functions print correct cURL commands
+- [x] `createStudent(studentData)`
+- [x] `readAllStudents()`
+- [x] `readStudentById(id)`
+- [x] `updateStudent(id, studentData)` (PUT)
+- [x] `patchStudent(id, partialData)` (PATCH)
+- [x] `deleteStudent(id)`
+- [x] All functions print correct cURL commands
 
 ---
 
 ## 📚 Phase 4: CRUD Documentation **(Ian)**
-- [ ] Document CREATE
-- [ ] Document READ ALL
-- [ ] Document READ BY ID
-- [ ] Document UPDATE (PUT)
-- [ ] Document PATCH
-- [ ] Document DELETE
-- [ ] Explain each flag (-i, -X, -H, -d)
-- [ ] Include HTTP response examples with headers + body
-- [ ] Include explanation of status codes
+- [x] Document CREATE
+- [x] Document READ ALL
+- [x] Document READ BY ID
+- [x] Document UPDATE (PUT)
+- [x] Document PATCH
+- [x] Document DELETE
+- [x] Explain each flag (-i, -X, -H, -d)
+- [x] Include HTTP response examples with headers + body
+- [x] Include explanation of status codes
 
 ---
 
