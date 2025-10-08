@@ -11,7 +11,7 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 - [x] Install dependencies:  
   - [x] json-server  
   - [x] dotenv  
-- [] Configure `package.json` with:
+- [x] Configure `package.json` with:
   - [x] `"type": "module"`
   - [X] Script `server:up` → run json-server on port 4000
   - [X] Script `crud:curl` → run `src/crud-curl.js`
@@ -22,7 +22,7 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
   - [x] `scripts/validate.sh`
   - [x] `images/`
 - [x] Create `.env` file
-- [] Create `.env.example` template
+- [x] Create `.env.example` template
 - [x] Configure `.gitignore`
 
 ---
@@ -102,11 +102,11 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 - [x] Set main branch
 - [x] Push initial code
 - [x] Create branch `m1/http-request-response`
-- [ ] Make incremental commits with descriptive messages
+- [x] Make incremental commits with descriptive messages
 - [x] Push branch to GitHub
-- [ ] Open Pull Request to main
+- [x] Open Pull Request to main
 - [x] Add professor as reviewer
-- [ ] Merge PR
-- [ ] Create and push tag `M1/http-request-response`
+- [x] Merge PR
+- [x] Create and push tag `M1/http-request-response`
 
 ---
