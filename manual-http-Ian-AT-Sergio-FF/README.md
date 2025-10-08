@@ -260,3 +260,36 @@ const curl = 'curl -X DELETE "'+url+'"';
 | `400 Bad Request` | Datos enviados no válidos | POST, PUT, PATCH |
 | `404 Not Found` | Recurso no encontrado | GET, PUT, PATCH, DELETE |
 | `500 Internal Server Error` | Error en el servidor | General |
+
+# Thunder Client Documentation
+
+1. Abre **Thunder Client** en Visual Studio Code.
+2. Introduce la URL base de la API
+3. Selecciona el metodo que vas a usar (**GET**, **POST**, **PUT**, **PATCH**, **DELETE**)
+4. Pon las cabeceras que necesites segun la documentacion de la API. Por ejemplo
+```json
+{"Content-Type": "application/json"}
+
+```
+5. En metodos como **PUT**, **PATCH** o **POST**; añade al body lo que quieres hacer 
+6. Envia la petición y comprueba que te devuelve
+
+## Capturas de pantalla
+
+### ➕ CREATE Student
+![Create Student](images/CREATE_Student.jpg)
+
+### 📋 GET All Students
+![Get All Students](images/GET_All_Students.jpg)
+
+### 🔍 GET Student by ID
+![Get Student by ID](images/GET_Student_by_ID.jpg)
+
+### 🔄 UPDATE Student
+![Update Student](images/UPDATE_Student.jpg)
+
+### ✏ PATCH Student
+![Patch Student](images/PATCH_Student.jpg)
+
+### 🗑 DELETE Student
+![Delete Student](images/DELETE_Student.jpg)

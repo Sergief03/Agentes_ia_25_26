@@ -58,23 +58,23 @@ Este archivo controla el progreso del ejercicio CRUD HTTP con cURL, Thunder Clie
 ---
 
 ## ⚡ Phase 5: Thunder Client **(Sergio)**
-- [ ] Create collection "CRUD Students API"
-- [ ] Setup environment variables (baseUrl, port, fullUrl)
-- [ ] Add 6 CRUD requests
-- [ ] Capture screenshots of each request + response
-- [ ] Save screenshots in `/images`
-- [ ] Include them in README.md
+- [x] Create collection "CRUD Students API"
+- [x] Setup environment variables (baseUrl, port, fullUrl)
+- [x] Add 6 CRUD requests
+- [x] Capture screenshots of each request + response
+- [x] Save screenshots in `/images`
+- [x] Include them in README.md
 
 ---
 
 ## 📝 Phase 6: REST Client **(Sergio)**
-- [ ] Create `peticiones-crud.http`
-- [ ] Define variables (@baseUrl, @port, @apiUrl)
-- [ ] Implement CRUD operations
-- [ ] Add filters (active students, by level)
-- [ ] Separate requests with `###`
-- [ ] Add descriptive comments
-- [ ] Test all requests from VS Code
+- [x] Create `peticiones-crud.http`
+- [x] Define variables (@baseUrl, @port, @apiUrl)
+- [x] Implement CRUD operations
+- [x] Add filters (active students, by level)
+- [x] Separate requests with `###`
+- [x] Add descriptive comments
+- [x] Test all requests from VS Code
 
 ---
 
