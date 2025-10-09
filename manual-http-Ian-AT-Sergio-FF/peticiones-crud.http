@@ -1,0 +1,63 @@
+@BASE_URL = http://localhost
+@PORT = 4000
+@API_URL = {{BASE_URL}}:{{PORT}}
+
+### 
+#  CREATE - Crear estudiante
+POST {{API_URL}}/students
+Content-Type: application/json
+
+{
+  "id": "8",
+  "name": "María García López",
+  "email": "maria.garcia@email.com",
+  "enrollmentDate": "2024-09-15",
+  "active": true,
+  "level": "intermediate"
+}
+
+###
+#  READ - Todos los estudiantes
+GET {{API_URL}}/students
+
+###
+#  READ - Estudiante por ID (8)
+GET {{API_URL}}/students/8
+
+###
+#  READ - Filtrar estudiantes activos
+GET {{API_URL}}/students?active=true
+
+###
+#  READ - Filtrar por nivel (intermediate)
+GET {{API_URL}}/students?level=intermediate
+
+###
+#  UPDATE - Actualizar estudiante completo (PUT)
+PUT {{API_URL}}/students/8
+Content-Type: application/json
+
+{
+  "id": "8",
+  "name": "María García López",
+  "email": "maria.garcia@email.com",
+  "enrollmentDate": "2024-09-15",
+  "active": false,
+  "level": "advanced"
+}
+
+###
+#  PATCH - Actualizar campo específico (solo activo)
+PATCH {{API_URL}}/students/8
+Content-Type: application/json
+
+{
+  "active": true
+}
+
+###
+#  DELETE - Eliminar estudiante
+DELETE {{API_URL}}/students/8
+
+
+
