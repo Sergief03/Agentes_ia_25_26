@@ -1,138 +1,206 @@
 // IMPORTACIONES
-import dotenv from "dotenv";
+import { config } from "dotenv";
+import { exec } from "child_process";
 
-//Cargo las variables .env a este fichero
-dotenv.config();
+// DECLARACION DE VARIABLES
+config();
 
 console.log("----- Comienzo de la ejecución del script -----");
 
-//mostrar por consola el valor de las variables de entorno
-console.log("URL de acceso: " + process.env.PORT);
-console.log("Puerto: " + process.env.API_BASE_URL);
+const API_URL = process.env.API_BASE_URL + ":" + process.env.PORT;
 
-// Construir la BASE_URL completa
-const BASE_URL = process.env.API_BASE_URL + ":" + process.env.PORT;
-console.log("BASE_URL completa: " + BASE_URL);
+// --- CRUD de estudiantes ---
 
 /**
- * Crea un nuevo estudiante
- * @param {Object} studentData -Datos del estudiante
+ * Crear un nuevo estudiante
+ * @param {Object} studentData - Datos del estudiante
  */
-function createStudent(studentData){
-    
-    // Se crea la URL para estudiantes
-    const url = BASE_URL + "/students";
+export const createStudent = (studentData) => {
+  // Se crea la URL para estudiantes
+  const URL_BASE = `${API_URL}/students`;
+  
+  // Preparamos los datos en JSON. (Estos datos se envían a la petición)
+  const data = JSON.stringify({ nombre: studentData.nombre, edad: studentData.edad }).replace(/"/g, '\\"');
+  
+  // Comando curl con el método POST 
+  const cmd = `curl -s -X POST "${URL_BASE}" -H "Content-Type: application/json" -d "${data}"`;
 
-    // Preparamos los datos en JSON. (Estos datos se envían a la petición)
-    const data = '{ "nombre": "'+studentData.nombre+'", "edad": '+studentData.edad + ' }';
+  console.log("Crear estudiante:");
+  console.log(cmd);
 
-    // Comando curl con el método POST 
-    const curl = 'curl -i -X POST "' + url + '" -H "Content-Type: application/json" -d \'' +data+ '\'';
-    
-    // Se muestra el comando por consola, si se ha hecho bien devuelve true o flase si no se ha hecho bien
-    console.log("Crear estudiante:");
-    console.log(curl);
-}
+  // Ejecuta el comando curl y maneja el resultado
+  exec(cmd, (error, stdout, stderr) => {
+    if (error) return console.error(`Error ejecutando curl: ${error.message}`);
+    if (stderr) console.error(`stderr: ${stderr}`);
+
+    try {
+      const result = JSON.parse(stdout);
+      console.log(result);
+    } catch {
+      console.log(stdout);
+    }
+  });
+};
 
 /**
- * Lee todos los estudiantes
+ * Leer todos los estudiantes
  */
-function readAllStudents(){
+export const getAllStudents = () => {
+  // Se crea la URL para estudiantes
+  const URL_BASE = `${API_URL}/students`;
 
-    // Se crea la URL para estudiantes
-    const url = BASE_URL + "/students";
-    
-    // comando curl con el método GET para hacer una petición
-    const curl = 'curl -i -X GET "'+url+'"';
+  // Comando curl con el método GET para hacer una petición
+  const cmd = `curl -s -X GET "${URL_BASE}"`;
 
-    // Se muestra el comando por consola, si se ha hecho bien devuelve true o flase si no se ha hecho bien
-    console.log("Leer todos los estudiantes:");
-    console.log(curl);
-}
+  console.log("Leer todos los estudiantes:");
+  console.log(cmd);
+
+  // Ejecuta el comando curl y maneja el resultado
+  exec(cmd, (error, stdout, stderr) => {
+    if (error) return console.error(`Error ejecutando curl: ${error.message}`);
+    if (stderr) console.error(`stderr: ${stderr}`);
+
+    try {
+      const result = JSON.parse(stdout);
+      console.log(result);
+    } catch {
+      console.log(stdout);
+    }
+  });
+};
 
 /**
  * Lee un estudiante por su ID
  * @param {Number} id 
  */
-function readStudentsById(id){
+export const getStudentById = (id) => {
+  // Se crea la URL con el id del estudiante
+  const URL_BASE = `${API_URL}/students/${id}`;
 
-    // Se crea la URL con el id del estudiante
-    const url = BASE_URL+"/students/"+id;
+  // comando curl para leer a un solo estudiante
+  const cmd = `curl -s -X GET "${URL_BASE}"`;
 
-    // comando curl para leer a un solo estudiante
-    const curl = 'curl -i -X GET "'+url+'"';
+  console.log("Leer estudiante por ID:");
+  console.log(cmd);
+  
+  // Ejecuta el comando curl y maneja el resultado
+  exec(cmd, (error, stdout, stderr) => {
+    if (error) return console.error(`Error ejecutando curl: ${error.message}`);
+    if (stderr) console.error(`stderr: ${stderr}`);
 
-    // Se muestra el comando por consola, si se ha hecho bien devuelve true o flase si no se ha hecho bien
-    console.log("Leer estudiante por Id:");
-    console.log(curl);
-}
+    try {
+      const result = JSON.parse(stdout);
+      console.log(result);
+    } catch {
+      console.log(stdout);
+    }
+  });
+};
 
 /**
  * Actualizar un estudiante
- * @param {Number} id -Id del estudiante
+ * @param {Number} id - Id del estudiante
  * @param {Object} studentData - Datos del estudiante
  */
-function updateStudent(id, studentData){
+export const updateStudent = (id, studentData) => {
+  // Se crea la URL con el id del estudiante
+  const URL_BASE = `${API_URL}/students/${id}`;
 
-    // Se crea la URL con el id del estudiante
-    const url = BASE_URL+"/students/"+id;
+  // Preparamos los datos en JSON para mandar los campos actualizados
+  const data = JSON.stringify({ nombre: studentData.nombre, edad: studentData.edad }).replace(/"/g, '\\"');
+  
+  // comando curl con PUT para que se actualicen los datos
+  const cmd = `curl -s -X PUT "${URL_BASE}" -H "Content-Type: application/json" -d "${data}"`;
 
-    // Preparamos los datos en JSON para mandar los campos actualizados
-    const data = '{ "nombre": "'+studentData.nombre+'", "edad": '+studentData.edad + ' }';
+  console.log("Actualizar estudiante:");
+  console.log(cmd);
 
-    // comando curl con PUT para que se actualicen los datos
-    const curl = 'curl -i -X PUT "' + url + '" -H "Content-Type: application/json" -d \'' + data+ '\'';
+  // Ejecuta el comando curl y maneja el resultado
+  exec(cmd, (error, stdout, stderr) => {
+    if (error) return console.error(`Error ejecutando curl: ${error.message}`);
+    if (stderr) console.error(`stderr: ${stderr}`);
 
-    // Se muestra el comando por consola, si se ha hecho bien devuelve true o flase si no se ha hecho bien
-    console.log("Actualizar estudiante:");
-    console.log(curl);
-}
+    try {
+      const result = JSON.parse(stdout);
+      console.log(result);
+    } catch {
+      console.log(stdout);
+    }
+  });
+};
 
 /**
  * Actualiza algunos campos del estudiante
- * @param {Number} id -Id del estudiante
- * @param {Object} partialData 
+ * @param {Number} id - Id del estudiante
+ * @param {Object} partialData - Datos del estudiante
  */
-function patchStudent(id, partialData){
+export const patchStudent = (id, partialData) => {
+  // Se crea la URL con el id del estudiante
+  const URL_BASE = `${API_URL}/students/${id}`;
 
-    // Se crea la URL con el id del estudiante
-    const url = BASE_URL+"/students/"+id;
+  // Preparamos los datos en JSON para mandar los campos actualizados
+  const data = JSON.stringify({ edad: partialData.edad }).replace(/"/g, '\\"');
 
-    // Preparamos los datos en JSON para mandar los campos actualizados
-    const data = '{ "edad": '+partialData.edad+' }';
+  // comando curl con PATCH para actualizar los datos parcialmente
+  const cmd = `curl -s -X PATCH "${URL_BASE}" -H "Content-Type: application/json" -d "${data}"`;
 
-    // comando curl con PATCH para actualizar los datos parcialmente
-    const curl = 'curl -i -X PATCH "'+url+'" -H "Content-Type: application/json" -d \''+data+'\'';
+  console.log("Actualizar parcialmente estudiante:");
+  console.log(cmd);
 
-    // Se muestra el comando por consola, si se ha hecho bien devuelve true o flase si no se ha hecho bien
-    console.log("Actualizar parcialmente estudiante:");
-    console.log(curl);
-}
+  // Ejecuta el comando curl y maneja el resultado
+  exec(cmd, (error, stdout, stderr) => {
+    if (error) return console.error(`Error ejecutando curl: ${error.message}`);
+    if (stderr) console.error(`stderr: ${stderr}`);
+
+    try {
+      const result = JSON.parse(stdout);
+      console.log(result);
+    } catch {
+      console.log(stdout);
+    }
+  });
+};
 
 /**
  * Elimina un estudiante por el Id
- * @param {Number} id -Id del estudiante
+ * @param {Number} id - Id del estudiante
  */
-function deleteStudent(id){
+export const deleteStudent = (id) => {
+  // Se crea la URL con el id del estudiante
+  const URL_BASE = `${API_URL}/students/${id}`;
+  
+  // comando curl con DELETE para eliminar a un estudiante
+  const cmd = `curl -s -X DELETE "${URL_BASE}"`;
 
-    // Se crea la URL con el id del estudiante
-    const url = BASE_URL+"/students/"+id;
+  console.log("Eliminar estudiante:");
+  console.log(cmd);
 
-    // comando curl con DELETE para eliminar el esutidante
-    const curl = 'curl -i -X DELETE "'+url+'"';
+  // Ejecuta el comando curl y maneja el resultado
+  exec(cmd, (error, stdout, stderr) => {
+    if (error) return console.error(`Error ejecutando curl: ${error.message}`);
+    if (stderr) console.error(`stderr: ${stderr}`);
 
-    // Se muestra el comando por consola, si se ha hecho bien devuelve true o flase si no se ha hecho bien
-    console.log("Eliminar estudiante: ");
-    console.log(curl);
-}
+    try {
+      const result = JSON.parse(stdout);
+      console.log(result);
+    } catch {
+      console.log(stdout);
+    }
+  });
+};
 
-// ---Ejecución del Script---
+// --- Ejemplo de ejecución secuencial usando callbacks ---
 
-createStudent({nombre: "Antonio", edad: 43});
-readAllStudents();
-readStudentsById(1);
-updateStudent(1, {nombre: "Antonio Lovato", edad: 45});
-patchStudent(1, {edad:49});
-deleteStudent(1);
+  createStudent({ nombre: "Antonio", edad: 43 });
 
-console.log("----- Fin de la ejecución del script -----");
+  // Nota: Como las funciones usan exec() asíncrono, si quieres secuenciar,
+  // debes anidar llamadas o usar callbacks dentro de cada exec() si necesitas
+  // que un paso ocurra después del anterior.
+  // Aquí solo mostramos ejecución independiente de ejemplo.
+  getAllStudents();
+  getStudentById(1);
+  updateStudent(1, { nombre: "Antonio Lovato", edad: 45 });
+  patchStudent(1, { edad: 49 });
+  deleteStudent(1);
+
+  console.log("----- Fin de la ejecución del script -----");
