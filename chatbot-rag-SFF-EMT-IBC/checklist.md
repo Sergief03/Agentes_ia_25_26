@@ -32,17 +32,21 @@
 
 | Script | Requisito | Resultado Esperado | Estado |
 | :--- | :--- | :--- | :---: |
+|**Sergio**|
 | **`scripts/procesar_rof.js`** | Lee `datos/rof.txt` | Genera `datos/chunks.json` | [ ] |
 |  | Divide el texto en párrafos (`\n\n`) y filtra los de menos de 100 caracteres | | [ ] |
 |  | Crea estructura JSON: `{ id, contenido, fuente, pagina }` | | [ ] |
+|**Esther**|
 | **`scripts/generar_embeddings.js`** | Llama a Ollama (`/api/embeddings`) con modelo `nomic-embed-text` | Genera `datos/embeddings.json` | [ ] |
 |  | Maneja la conexión y errores de Ollama | | [ ] |
 |  | Muestra progreso y tiempo total de generación | | [ ] |
+|**Iván**|
 | **`scripts/cargar_bd.js`** | Crea base de datos `datos/rof_vectores.db` con tabla `fragmentos` | Genera `rof_vectores.db` | [ ] |
 |  | Define campo `embedding` como tipo `TEXT` | | [ ] |
 |  | Lee `datos/embeddings.json` e inserta fragmentos | | [ ] |
 |  | Usa transacciones (`BEGIN`, `COMMIT`) para mejorar rendimiento | | [ ] |
 |  | Implementa `verificarBD()` (conteo de filas y tamaño del archivo) | | [ ] |
+|**Sergio**|
 | **`scripts/test_busqueda.js`** | Implementa `calcularSimilitud(v1, v2)` (similitud de coseno) | | [ ] |
 |  | Genera embedding de la consulta y busca los **N fragmentos** más similares en BD | | [ ] |
 |  | Muestra puntuación de similitud y resultados en consola | | [ ] |
@@ -53,13 +57,17 @@
 
 | Tarea | Requisito | Estado |
 | :--- | :--- | :---: |
+|**Sergio**|
 | **Docker Compose** | Crear `docker-compose.yml` para el servicio de Ollama | [ ] |
+|**Esther**|
 | **Documentación** | Crear `README.md` completo | [ ] |
-| **README.md** | Incluir descripción del proyecto (RAG, embeddings), requisitos, instalación y ejecución | [ ] |
-| **README.md** | Explicar el flujo de ingesta de datos y los scripts individuales | [ ] |
-| **README.md** | Explicar qué es un *embedding* y la búsqueda por similitud de coseno | [ ] |
+|  | Incluir descripción del proyecto (RAG, embeddings), requisitos, instalación y ejecución | [ ] |
+| | Explicar el flujo de ingesta de datos y los scripts individuales | [ ] |
+| | Explicar qué es un *embedding* y la búsqueda por similitud de coseno | [ ] |
+|**Sergio**|
 | **Validación** | Crear `validacion.http` con tests de conexión y verificación | [ ] |
 | **Control de Versiones** | Realizar commits incrementales (`init`, `feat`, `docs`, etc.) | [ ] |
+|**Sergio**|
 | **Entrega** | Crear Pull Request hacia `main` con título y descripción completa | [ ] |
 
 ---
