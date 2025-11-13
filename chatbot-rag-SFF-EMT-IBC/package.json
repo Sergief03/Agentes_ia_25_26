@@ -4,21 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "procesar": "node scripts/procesar_rof.js",
-  "embeddings": "node scripts/generar_embeddings.js",
-  "cargar-bd": "node scripts/cargar_bd.js",
-  "ingesta": "npm run procesar && npm run embeddings && npm run cargarbd",
-  "test-busqueda": "node scripts/test_busqueda.js",
-  "dev": "nodemon --watch scripts scripts/test_busqueda.js"
+    "procesar": "node scripts/procesar_rof.js",
+    "embeddings": "node scripts/generar_embeddings.js",
+    "cargar-bd": "node scripts/cargar_bd.js",
+    "ingesta": "npm run procesar && npm run embeddings && npm run cargarbd",
+    "test-busqueda": "node scripts/test_busqueda.js",
+    "dev": "nodemon --watch scripts scripts/test_busqueda.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "better-sqlite3": "^12.4.1",
+    "@qdrant/qdrant-js": "^1.15.1",
     "dotenv": "^17.2.3",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
