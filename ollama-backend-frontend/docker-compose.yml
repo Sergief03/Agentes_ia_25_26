@@ -1,0 +1,54 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    networks:
+      - ia-net
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: mini-backend
+    restart: unless-stopped
+    depends_on:
+      - ollama
+    environment:
+      - PORT=3002
+      - HOST=0.0.0.0
+      - NODE_ENV=production
+      - SERVER_URL=http://localhost:3002
+      - AI_API_URL=http://ollama:11434
+      - AI_MODEL=llama3.2:1b
+    networks:
+      - ia-net
+  frontend:
+    build: ./frontend
+    container_name: mini-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "8081:80"
+    networks:
+      - ia-net
+networks:
+    ia-net:
+      driver: bridge
+
+volumes:
+    ollama_data:
+      external: true  
