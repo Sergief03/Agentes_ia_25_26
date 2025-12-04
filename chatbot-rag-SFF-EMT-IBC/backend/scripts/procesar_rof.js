@@ -53,8 +53,8 @@ function generarChunks(parrafos, maxLen = 1000, overlap = 100) {
   return chunks;
 }
 
-function procesarROF() {
-  const inputPath = "./datos/datos.txt";
+export function procesarROF(path="./datos/datos.txt") {
+  const inputPath = `${path}`;
   const outputPath = "./datos/chunks.json";
 
   if (!fs.existsSync(inputPath)) {
@@ -79,9 +79,6 @@ function procesarROF() {
   console.log(`🧩 Ejemplo del primer fragmento:\n${chunks[0].contenido.slice(0, 200)}...`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  procesarROF();
-}
-procesarROF();
+
 
 export default procesarROF;
