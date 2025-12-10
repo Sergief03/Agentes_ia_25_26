@@ -14,9 +14,9 @@ const API_PORT=process.env.API_PORT || 3000;
 
 const QDRANT_URL = process.env.QDRANT_URL || 'http://localhost:6333';
 const QDRANT_COLLECTION_NAME = process.env.QDRANT_COLLECTION_NAME || 'fragmentos_rof';
-const OLLAMA_URL = process.env.OLLAMA_URL || 'http://ollama:11434';
+const OLLAMA_URL = process.env.OLLAMA_URL || 'http://localhost:11434';
 const OLLAMA_EMBEDDING_MODEL = process.env.OLLAMA_EMBEDDING_MODEL || 'nomic-embed-text';
-const OLLAMA_LLM_MODEL = process.env.OLLAMA_MODEL_LLM || 'mistral';
+const OLLAMA_LLM_MODEL = process.env.OLLAMA_MODEL_LLM || 'llama3.2:1b';
 
 const client = new QdrantClient({ url: QDRANT_URL });
 

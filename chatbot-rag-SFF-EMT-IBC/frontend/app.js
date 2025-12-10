@@ -12,7 +12,6 @@ const statusElement = document.getElementById('status');
 const statusText = statusElement.querySelector('.status-text');
 const charCount = document.getElementById('charCount');
 const fileInput = document.getElementById('fileInput');
-const uploadBtn = document.getElementById('uploadBtn');
 
 // ===== Estado =====
 let isProcessing = false;
@@ -54,16 +53,6 @@ function setupEventListeners() {
             messageInput.focus();
         }
     });
-
-    uploadBtn.addEventListener('click', () => {
-        fileInput.click();
-    });
-
-    fileInput.addEventListener('change', () => {
-        if (fileInput.files.length > 0) {
-            sendFile();
-        }
-    });
 }
 
 // ===== Funciones de UI =====
@@ -92,11 +81,10 @@ async function checkServerStatus() {
     try {
         const response = await fetch(`${API_URL}/status`);
         const data = await response.json();
-        console.log(data.servicios.qdrant.fragmentos);
         
         if (data.status === 'ok') {
             statusElement.classList.add('connected');
-            statusText.textContent = `Conectado (${ JSON.stringify(data.servicios.qdrant.fragmentos)} fragmentos)`;
+            statusText.textContent = `Conectado (${data.servicios.qdrant.fragmentos} fragmentos)`;
         } else {
             setServerStatus('error', 'Error de conexión');
         }
@@ -117,11 +105,6 @@ function setServerStatus(status, text) {
 // Enviar archivo
 async function sendFile() {
     const file = fileInput.files[0];
-    if (!file) {
-        addMessage('No se seleccionó ningún archivo', 'bot');
-        return;
-    }
-
     const formData = new FormData();
     formData.append('archivo', file);
 
@@ -138,17 +121,17 @@ async function sendFile() {
         const data = await response.json();
 
         if (data.ok) {
-            addMessage(`Archivo "${file.name}" cargado correctamente`, 'bot');
+            addMessage('Archivo cargado correctamente', 'bot');
         } else {
-            addMessage(`Error al cargar "${file.name}"`, 'bot');
+            addMessage('Error al cargar el archivo', 'bot');
         }
-
-        fileInput.value = '';
     } catch (error) {
         console.error('Error al enviar el archivo:', error);
         addMessage('Error al cargar el archivo', 'bot');
     }
 }
+
+fileInput.addEventListener('input', sendFile);
 
 // ===== Enviar mensaje =====
 async function sendMessage() {
