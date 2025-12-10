@@ -220,9 +220,11 @@ app.post("/insertar", upload.single('archivo'), async (req, res) => {
 
 app.get("/status",async (req,res)=>{
     try{
-        const fragmentos=client.count(QDRANT_COLLECTION_NAME);
+        const fragmentos=await fetch(`${QDRANT_URL}/collections/${QDRANT_COLLECTION_NAME}`).then(res=>res.json()).then(data=>data.result.points_count);
 
         const ollamaOk=await fetch(`${OLLAMA_URL}/api/tags`).ok;
+
+        console.log(fragmentos)
 
         res.json({
             status:"ok",
@@ -253,7 +255,7 @@ app.get("/status",async (req,res)=>{
 
 
 // Iniciar servidor
-app.listen(API_PORT, () => {
+app.listen(API_PORT,"0.0.0.0", () => {
     console.log('');
     console.log('╔════════════════════════════════════════════════════════════╗');
     console.log('║   🤖 Servidor RAG Chatbot Iniciado                        ║');
