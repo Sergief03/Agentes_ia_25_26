@@ -1,0 +1,76 @@
+version: "3.8"
+
+networks:
+  rag_network:
+
+services:
+  app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: chatbot_app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      API_PORT: 3000
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_COLLECTION_NAME: fragmentos_rof
+    depends_on:
+      - qdrant
+      - ollama
+    volumes:
+      - ./backend/datos:/app/datos
+    networks:
+      - rag_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: chatbot_frontend
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    depends_on:
+      - app
+    networks:
+      - rag_network
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    environment:
+      QDRANT__SERVICE__GRPC_PORT: 6334
+      QDRANT__SERVICE__HTTP_PORT: 6333
+      QDRANT__STORAGE__PATH: /qdrant/storage
+    networks:
+      - rag_network
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - rag_network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+volumes:
+  qdrant_storage:
+  ollama_data:
+    external: true
